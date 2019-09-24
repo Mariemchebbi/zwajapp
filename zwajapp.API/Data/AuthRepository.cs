@@ -24,7 +24,7 @@ namespace zwajapp.API.Data
             await _context.SaveChangesAsync();
             return user;
         }
-        private  void CreatePasswordHash(string password, out byte[] passwordSalt, out byte[] passwordHash )
+        private  void CreatePasswordHash(string password, out byte[] passwordSalt , out byte[] passwordHash)
         {
             using( var hmac = new System.Security.Cryptography.HMACSHA512())
             {
@@ -43,7 +43,7 @@ namespace zwajapp.API.Data
             return null;
             return user;
         }
-        private bool VerifyPasswordHash(string password, byte[] passwordSalt, byte[] passwordHash)
+       private bool VerifyPasswordHash(string password, byte[] passwordSalt, byte[] passwordHash)
         {
             using( var hmac = new System.Security.Cryptography.HMACSHA512(passwordSalt))
             {
